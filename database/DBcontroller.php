@@ -5,7 +5,7 @@ class DBcontroller
     // mysql credentials
     protected string $host = 'localhost';
     protected string $user = 'work';
-    protected string $password = '';
+    protected string $password = 'x112233X';
     protected string $database = 'raw-shop';
 
     // connection property

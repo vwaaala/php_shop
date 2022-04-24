@@ -3,6 +3,7 @@
 $brand = array_map(function ($pro){return $pro['brand'];}, $product_shuffle);
 $unique_brand = array_unique($brand);
 sort($unique_brand);
+shuffle($product_shuffle)
 ?>
 <section id="special-price">
     <div class="container">
