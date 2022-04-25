@@ -10,7 +10,7 @@
             <?php foreach ($product_shuffle as $item) {?>
             <div class="item py-2 bg-light">
                 <div class="product font-rale">
-                    <a href="#"><img src="../static/image/products/<?php echo $item['image']?>" alt="product1" class="img-fluid"></a>
+                    <a href="<?php printf('%s?item_id=%s','product-detail.php',$item['id']) ?>"><img src="../static/image/products/<?php echo $item['image']?>" alt="product1" class="img-fluid"></a>
                     <div class="text-center">
                         <h6><?php echo $item['name']?></h6>
                         <div class="rating text-warning font-size-12">
