@@ -4,8 +4,8 @@ class DBcontroller
 {
     // mysql credentials
     protected string $host = 'localhost';
-    protected string $user = 'root';
-    protected string $password = '';
+    protected string $user = 'work';
+    protected string $password = 'x112233X';
     protected string $database = 'raw-shop';
 
     // connection property
@@ -25,7 +25,8 @@ class DBcontroller
         $this->closeConnection();
     }
     // for mysqli closing connection
-    protected function closeConnection(){
+    protected function closeConnection(): void
+    {
             if($this->con != null){
                 $this->con->close();
                 $this->con = null;

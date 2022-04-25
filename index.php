@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // Attach common header section
 include('templates/header.php');
 

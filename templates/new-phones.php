@@ -1,5 +1,17 @@
 <!-- New Phones -->
-<?php shuffle($product_shuffle);?>
+<?php
+// shuffle product sequence
+shuffle($product_shuffle);
+// request method post
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+    if (isset($_POST['new_phones_submit']))
+    {
+        $cart->addToCart($_POST['product_id'],$_POST['user_id']);
+    }
+}
+?>
+?>
 <section id="new-phones">
     <div class="container">
         <h4 class="font-rubik font-size-20">New Phones</h4>
@@ -23,7 +35,11 @@
                         <div class="price py-2">
                             <span>$<?php echo $item['price']?></span>
                         </div>
-                        <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                        <form method="post">
+                            <input type="hidden" name="product_id" value="<?php echo $item['id'];?>">
+                            <input type="hidden" name="user_id" value="<?php echo 1;?>">
+                            <button type="submit" name="new_phones_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>

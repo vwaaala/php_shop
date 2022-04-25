@@ -3,7 +3,16 @@
 $brand = array_map(function ($pro){return $pro['brand'];}, $product_shuffle);
 $unique_brand = array_unique($brand);
 sort($unique_brand);
-shuffle($product_shuffle)
+// shuffle product sequence
+shuffle($product_shuffle);
+// request method post
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+    if (isset($_POST['special_price_submit']))
+    {
+        $cart->addToCart($_POST['product_id'],$_POST['user_id']);
+    }
+}
 ?>
 <section id="special-price">
     <div class="container">
@@ -36,7 +45,11 @@ shuffle($product_shuffle)
                             <div class="price py-2">
                                 <span>$<?php echo $item['price']?></span>
                             </div>
-                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            <form method="post">
+                                <input type="hidden" name="product_id" value="<?php echo $item['id'];?>">
+                                <input type="hidden" name="user_id" value="<?php echo 1;?>">
+                                <button type="submit" name="special_price_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>

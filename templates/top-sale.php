@@ -1,6 +1,18 @@
 <?php
+// get all product
 $product_shuffle = $product->getData();
-shuffle($product_shuffle)
+
+// shuffle item sequence
+shuffle($product_shuffle);
+
+// request method post
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+    if (isset($_POST['top_sale_submit']))
+    {
+        $cart->addToCart($_POST['product_id'],$_POST['user_id']);
+    }
+}
 ?>
 <!-- Top Sale -->
 <section id="top-sale">
@@ -26,7 +38,11 @@ shuffle($product_shuffle)
                         <div class="price py-2">
                             <span>$<?php echo $item['price'] ?? '00.0';?></span>
                         </div>
-                        <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                        <form method="post">
+                            <input type="hidden" name="product_id" value="<?php echo $item['id'];?>">
+                            <input type="hidden" name="user_id" value="<?php echo 1;?>">
+                            <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
